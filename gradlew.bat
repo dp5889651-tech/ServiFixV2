@@ -1,0 +1,15 @@
+@echo off
+setlocal
+
+set APP_HOME=%~dp0
+set CLASSPATH=%APP_HOME%gradle\wrapper\gradle-wrapper.jar
+
+if not "%JAVA_HOME%"=="" (
+    set JAVA_EXE=%JAVA_HOME%\bin\java.exe
+) else (
+    set JAVA_EXE=java.exe
+)
+
+"%JAVA_EXE%" -classpath "%CLASSPATH%" com.servifix.wrapper.GradleWrapperMain %*
+set EXIT_CODE=%ERRORLEVEL%
+endlocal & exit /b %EXIT_CODE%
